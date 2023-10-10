@@ -1,0 +1,409 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+html{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
+body{
+    background-color:#F5DEB3;
+    padding: 0;
+    margin: 0;
+}
+
+#master{
+    text-align: center;
+    color: black;
+    overflow:hidden;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-color: burlywood;
+
+}
+
+#boton-pantalla{
+    color: white;
+    border-radius: 5px;
+    background-color: burlywood ;
+    /* width: 35px;
+    height: 35px; */
+    padding: 5px;
+    margin: 5px;
+    right: 0;
+    font-size: 10pt;
+    line-height: 7pt ;
+    overflow: auto;
+    border: solid 2px #ddd ;  
+    box-shadow: -1px 1px #A68C73;
+    position: fixed;
+    opacity: 80%;
+    z-index: 2;
+    cursor: pointer;
+    text-shadow: 0px -1px black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#escena{
+    width:100vw ;
+    height: 100vh ;
+    position: absolute;
+    background-color: wheat;
+    background-image: url(./town.svg) ;
+    background-size:cover ;
+    background-position:center ;
+    background-repeat: no-repeat;
+}
+
+
+
+#duelo{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 60vh;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: baseline;
+    overflow: hidden;
+    cursor: pointer;
+    animation-duration: 3s;
+    animation-name: pasos;
+}
+
+@keyframes pasos {
+    from {
+        width: 30vw;
+        margin-left: 35vw;
+        margin-right: 35vw;
+    }   
+
+    to {
+        width: 80vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        
+    }
+}
+
+
+
+.jugando{
+    height: 17vw;
+    transition: 1s;
+    animation-duration: 3s;
+    cursor: pointer;
+
+}
+
+.winner{
+    animation-delay: 0.8s;
+    animation-duration: 0.4s;
+    animation-name: win;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+@keyframes win {
+    from {
+        rotate: 5deg;
+    }
+    
+    to {
+        rotate: -5deg;
+
+    }
+}
+
+
+
+
+
+#cartel{
+    margin-top: 27vh;
+    width: 50vw;
+    margin-left: 24vw;
+    text-align: center;
+    line-break: strict ;
+    position: absolute;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    border: solid 2px black;
+    padding: 1vw;
+    padding-bottom: 0;
+    font-family:'Courier New', Courier, monospace; 
+    font-size:large;
+    z-index: 10;
+    transition: 0,5s;
+    box-shadow: 0px 3px #573A32;
+    text-shadow: 0px 1px white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+
+
+}
+
+#play {    
+    font-family: 'Sancreek', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #573A32;
+    padding: 0;
+    margin: 10px;
+    margin-bottom: -50px;
+    height: 120px;
+    width: 120px;
+    background-image: url(./estrella.svg) ;
+    background-position: center ;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    transition: 0.1s;
+    cursor: pointer;
+    text-shadow: 0px 1px whitesmoke;
+
+
+}
+
+#play:hover{
+    color: black;
+    background-image: url(./estrella2.svg) ;
+    transform: rotate(360deg);
+}
+
+#campana{
+    margin-top: 25vh;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 85px;
+    font-weight: 600;
+    color:#A58B71;
+    padding: 60px;
+    text-shadow: black 0 5px 2px;
+    /* text-shadow: black -5px 0px, black 0px 5px, black 5px 0px, black 0px -5px; */
+    background-image: url(./angry\ bubble.svg) ;
+    background-position: center ;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    transition: 0.2s;
+    
+}
+
+
+
+
+
+
+
+.invisible{
+    opacity: 0;
+
+}
+
+.noMostrar{
+    display: none;
+}
+
+
+
+/* ####################################### */
+/* ####################################### */
+/*    estos son los divs pa hacer click    */
+/* ####################################### */
+/* ####################################### */
+
+
+
+#ladoa{
+    position: absolute;
+    float: left;
+    height:100%;
+    width: 50%;
+    display: block;
+    text-align: right;
+}
+
+#ladob{
+    position: relative;
+    float: right;
+    height: 100%;
+    width: 50%;
+    display: block;
+    text-align: left;
+}
+
+.areas{
+    font-size: 22vh;
+    font-family: 'Sancreek', sans-serif;
+    font-stretch: condensed;
+    font-weight: 900;
+    color:#573A32;
+    opacity: 50%;
+    line-height: 150%;
+    text-shadow: 0px 3px black;
+
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+
+/* ####################################### */
+/*    musica y boton mute    */
+/* ####################################### */
+/* ####################################### */
+
+
+
+
+
+
+
+
+
+/* ####################################### */
+/*                 AUTORES                 */
+/* ####################################### */
+
+
+#autores{
+    border: 1px solid burlywood;
+    border-top: 1px solid whitesmoke;
+    background-color: wheat;
+    padding: 10px;
+    border-radius: 5px;   
+    box-shadow: 0px 3px burlywood;
+    margin: 10px;
+    margin-top: -65px ;
+    font-size: 12pt;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0px 1px whitesmoke;
+    color: #A68C73;
+    z-index: 2; 
+    position:fixed;
+    bottom: 0;
+    font-family: sans-serif;
+
+    float: left;
+    width: 34%;
+    margin-left: 33%;
+    margin-right: 33%;
+
+}
+
+
+
+#autores a{
+    font-family: sans-serif;
+    color: #A68C73;
+    text-shadow: 0px 1px whitesmoke;
+    text-decoration: none ;
+    cursor: pointer;
+}
+
+
+/* ####################################### */
+/* ####################################### */
+/*             MODO LANDSCAPE              */
+/* ####################################### */
+/* ####################################### */
+
+
+  @media only screen and (orientation:landscape){
+    #master {  
+       -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+       -o-transform: rotate(0deg);
+       -ms-transform: rotate(0deg);
+       transform: rotate(0deg);
+    }
+  }
+
+
+
+@media only screen and (orientation:portrait){
+    #master {  
+        height: 100vw;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        height: 100vw;
+        width: 100vh;
+        margin: 0;
+        padding: 0;
+
+        transform-origin: left bottom;
+        top: 100%;
+        margin-top: -100%;
+
+
+    }
+ 
+    #escena{
+        width:100vh ;
+        height: 100vw ;
+    }
+
+    #campana{
+        margin-top: 25vw;
+        }
+
+    #duelo{
+        width: 90vh;
+        margin-top: 60vw;
+    }
+    @keyframes pasos {
+        from {
+            width: 20vh;
+            margin-left: 40vh;
+            margin-right: 40vh;
+        }   
+    
+        to {
+            margin-left: 5vh;
+            margin-right: 5vh;
+            width: 90vh;
+        }
+    }
+
+    .jugando{
+        height: 17vh;
+    }
+
+    .areas{
+        font-size: 22vw;
+    }
+
+    #cartel{
+        margin-top: 27vw;
+        width: 50vh;
+        margin-left: 24vh;
+    }
+
+
+/* hasta acá el modo landscape */
+}
+
+
